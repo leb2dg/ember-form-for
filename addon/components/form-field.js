@@ -129,6 +129,9 @@ const FormFieldComponent = Component.extend({
     }
 
     if (isPresent(errors)) {
+      if (!Ember.isArray(errors)) {
+        errors = errors.validation;
+      }
       errors.forEach((_, index) => {
         ids.push(`${fieldId}_error-${index}`);
       });
